@@ -1,8 +1,6 @@
 <script>
     export let link = "";
     export let text = "";
-
-    // Function to handle navigation
     const navigateToCondition = (condition) => {
         window.location.href = `/health/${condition.toLowerCase()}`;
     }
@@ -46,13 +44,13 @@
             </svg>
         </div>
         <div class="options">
-            <a href="/Discover/webinar" class="option">
+            <a href="/Updates/webinar" class="option">
                 <div class="option-content">Webinar</div>
             </a>
-            <a href="/Discover/upcomingevents" class="option">
+            <a href="/Updates/upcomingevents" class="option">
                 <div class="option-content">Upcoming Events</div>
             </a>
-            <a href="/Discover/workshop" class="option">
+            <a href="/Updates/workshop" class="option">
                 <div class="option-content">Workshop</div>
             </a>
         </div>

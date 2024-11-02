@@ -27,31 +27,31 @@
 
 <style>
     .header {
-        position: relative; /* Set relative to contain absolutely positioned navbar */
+        position: relative; 
         width: 100%;
-        height: 200px; /* Adjust height as needed */
+        height: 200px; 
     }
 
     .headgirl {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* Adjusts the image to cover the container */
+        object-fit: cover;
     }
 
     .navbar {
-        position: absolute; /* Positions navbar on top of header */
-        top: 20px; /* Adjust spacing from the top */
+        position: absolute;
+        top: 20px; 
         left: 0;
         right: 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        max-width: 1200px; /* Center content within navbar */
+        max-width: 1200px; 
         margin: 0 auto;
         z-index: 1;
         font-size: larger;
-        padding: 10px 20px; /* Add some padding for better spacing */
-        border-radius: 8px; /* Optional: rounded corners */
+        padding: 10px 20px; 
+        border-radius: 8px; 
     }
 
     .main-title {
