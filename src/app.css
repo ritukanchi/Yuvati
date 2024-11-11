@@ -4,6 +4,7 @@ html, body {
     margin: 0; /* Optional: removes default margin */
     padding: 0;
     min-height: 100vh; /* Ensures color covers full height */
+    color:black; 
 };
 
 @font-face {

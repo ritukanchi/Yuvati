@@ -26,7 +26,7 @@
                 <img src="tampon.png" alt="tamp">
             </div>
             <div class="overlay">
-                <h2>Don't panic about lead in tampons!</h2>
+                <a href="/Discover/tampon"><h2>Don't panic about lead in tampons!</h2></a>
             </div>
         </div>
         <div class="head-3">
@@ -45,15 +45,16 @@
         align-items: center;
         padding: 40px;
         padding-top: 0;
-        gap: 20px; /* Small gap to avoid elements sticking together */
+        gap: 20px; 
         font-family: "Nunito", sans-serif;
         font-optical-sizing: auto;
-
+        text-decoration: none;
+        color:black;
     }
 
 
     .left-article {
-        width: 48%; /* Set both articles to take up nearly equal space */
+        width: 48%; 
     }
 
     .heading {
@@ -80,6 +81,7 @@
         padding-right: 0px;
         justify-content: center;
         align-items: center;
+        text-decoration: none;
     }
     .caption{
         width: 100%;
@@ -90,6 +92,7 @@
     .head-2, .head-3 {
         padding: 20px;
         text-align: center;
+        text-decoration: none;
     }
     .tampon{
         width: 100px;
@@ -104,5 +107,7 @@
     }
     .overlay{
         position: relative;
+        text-decoration: none;
+        color:black;
     }
 </style>

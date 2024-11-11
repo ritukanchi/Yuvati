@@ -18,6 +18,7 @@
             <NavLink link="/Updates"/>
             <div class="otherlinks">
                 <NavLink link="/Discover" text="Discover" />
+                <NavLink link ="/subscribe" text="Subscribe"/>
                 <NavLink link="/signin" text="Sign in" />
                 <NavLink link="/connect" text="Connect" />
             </div>

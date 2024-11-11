@@ -15,7 +15,9 @@
 		"vite": "^5.0.3"
 	},
 	"dependencies": {
+		"bits-ui": "^0.21.16",
 		"firebase": "^11.0.1",
+		"shadcn-svelte": "^0.14.0",
 		"typesense": "^1.8.2"
 	}
 }

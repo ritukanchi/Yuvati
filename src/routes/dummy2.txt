@@ -1,88 +1,91 @@
 <script>
-    import NavLink from "./NavLink.svelte";
-    </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Aladin&family=Mountains+of+Christmas:wght@400;700&family=Paprika&display=swap" rel="stylesheet">
-<div class="header">
-    <img src="headergirl.png" alt="head"/>
-</div>
-    <nav class="navbar">
-        <div class="nav-links">
-            <div class="girl1">
-                <img src="girl1.png" alt="Girl icon" width="40" height="40">
-            </div>
-            <div class="main-title">
-                <NavLink link="/" text="Yuvati" />
-            </div>            
-            <NavLink link="/Health"/>
-            <NavLink link="/Discover"/>
-            <div class="otherlinks">
-                <NavLink link="/Updates" text="Updates" />
-                <NavLink link="/signin" text="Sign in" />
-                <NavLink link="/connect" text="Connect" />
-            </div>
-        </div>
-    </nav>
+  import { Notifications, acts } from '@tadashi/svelte-notification';
 
+  let triggers = [
+    { mode: 'normal', message: 'Nothing to say...', lifetime: 2 },
+    { mode: 'success', message: '✓ Nice!' },
+    { mode: 'info', message: 'ℹ Leve a japona' },
+    { mode: 'warn', message: '⚠ Já chegou o disco voador!' },
+    { mode: 'danger', message: '☠ Alta tensão' },
+  ];
 
+  let showModal = false;
+
+  function toggleModal() {
+    showModal = !showModal;
+  }
+
+  function handleSubscribe() {
+    // Handle the subscribe action here
+    acts.add({ mode: 'success', message: 'You have successfully subscribed!' });
+    toggleModal(); // Close the modal after subscription
+  }
+</script>
+
+{#each triggers as trigger}
+  <button
+    type="button"
+    on:click={() => {
+      acts.add(trigger);
+    }}
+  >
+    Add {trigger.mode}
+  </button>
+{/each}
+
+<!-- Subscribe Button -->
+<button type="button" on:click={toggleModal}>Subscribe</button>
+
+<!-- Modal Dialog -->
+{#if showModal}
+  <div class="modal-overlay" on:click={toggleModal}>
+    <div class="modal-content" on:click|stopPropagation>
+      <h2>Confirm Subscription</h2>
+      <p>Are you sure you want to subscribe? You will receive updates and notifications.</p>
+      <button on:click={handleSubscribe}>Subscribe</button>
+      <button on:click={toggleModal}>Cancel</button>
+    </div>
+  </div>
+{/if}
+
+<Notifications />
 
 <style>
-    .nav-container {
-        background-color: #FFB6B6;
-        position:top;
-        width: 100%;
-    }
-    .header{
-        
-    }
-    .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: relative;
-        max-width: 1000px;
-        margin: 0 auto;
-        z-index: 2;
-        font-size: larger;
-    }
+  button {
+    display: block;
+    margin: 0.3rem;
+    min-width: 150px;
+  }
 
-    .main-title {
-        padding-top: 26px;
-        font-family: "Paprika", system-ui;
-        font-weight: 400;
-        font-style: normal;
-        font-weight: bolder;
-        font-size: larger;
-    }
-    .otherlinks{
-        padding-top: 26px;
-        display: flex; 
-        justify-content: space-around;
-        gap: 4rem; 
-    }
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .nav-links {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        font-size: larger;
-        width: fit-content;
-        gap: 4rem;
-        white-space: nowrap;
-    }
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+  }
 
-    .girl1 {
-        display: flex;
-        align-items: center;
-        width: 120px;  /* Set fixed width */
-        height: 60px; /* Set fixed height */
-        margin-right: 0.6rem; /* Add some space between image and text */
-    }
-
-    .girl1 img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain; /* This will maintain aspect ratio */
-    }
+  .modal-content button {
+    margin: 10px 5px;
+  }
 </style>
+
+<svelte:head>
+  <style>
+    :root {
+      --tadashi_svelte_notifications_width: 300px;
+    }
+  </style>
+</svelte:head>

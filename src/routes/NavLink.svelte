@@ -72,6 +72,7 @@
         align-items: center;
         padding-bottom: 30px;
         gap: 90px;
+        color: black; 
     }
 
     .header-link {
@@ -85,6 +86,7 @@
         margin: 10px; 
         gap: 4rem; 
         transition: 0.1s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        color: black; 
     }
 
     /* Dropdown styles */
@@ -101,7 +103,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        color: rgb(0, 0, 0);
+        color: black;
     }
 
     .arrow {
@@ -120,6 +122,7 @@
         border-radius: 5px;
         z-index: 1000;
         font-size: larger;
+        color:black; 
     }
 
     .select:hover .options {
